@@ -25,3 +25,4 @@ galaxy_info:
 dependencies:
   - geerlingguy.docker
   - geerlingguy.pip
+  - gantsign.golang
