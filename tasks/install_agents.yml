@@ -17,3 +17,8 @@
     cmd: "./mythic-cli install github {{ agent.repo }} {{ agent.branch }}"
     chdir: "{{ installation_path }}"
     creates: "{{ installation_path }}/{{ agent.repo | split('/') | last }}"
+
+- name: Start Agent {{ agent.repo | split('/') | last }}
+  command:
+    cmd: "./mythic-cli start {{ agent.repo | split('/') | last }}"
+    chdir: "{{ installation_path }}"
