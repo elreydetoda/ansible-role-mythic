@@ -4,7 +4,16 @@
       - agent is defined
       - installation_path is defined
 
-- name: Install Agent
-  command: "./mythic-cli install github {{ agent.repo }} {{ agent.branch }} -f"
-  args:
+- name: Remove {{ agent.repo | split('/') | last }}
+  ansible.builtin.file:
+    path: "{{ installation_path }}/{{ agent.repo | split('/') | last }}"
+    state: absent
+  when:
+    - MYTHIC_FORCE_REINSTALL is defined
+    - MYTHIC_FORCE_REINSTALL | boolean
+
+- name: Install Agent {{ agent.repo | split('/') | last }}
+  command:
+    cmd: "./mythic-cli install github {{ agent.repo }} {{ agent.branch }}"
     chdir: "{{ installation_path }}"
+    creates: "{{ installation_path }}/{{ agent.repo | split('/') | last }}"
