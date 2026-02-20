@@ -6,6 +6,8 @@ server_header: nginx 1.2
 admin_username: admin_username
 default_password: default_password
 operation_name: operation_name
+# https://github.com/gantsign/ansible-role-golang/issues/413
+golang_mirror: https://go.dev/dl
 agents:
     - repo: https://github.com/MythicAgents/Apollo
       branch: master
