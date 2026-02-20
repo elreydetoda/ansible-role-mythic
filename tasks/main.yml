@@ -12,6 +12,7 @@
     name: geerlingguy.pip
   vars:
     pip_install_packages:
+      - mythic
       - docker
       - botocore
       - boto3
@@ -93,6 +94,6 @@
 
 
 - name: Start mythic 
-  command: "./mythic-cli start"
+  shell: "./mythic-cli start"
   args:
     chdir: "{{ installation_path }}"
