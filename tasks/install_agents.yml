@@ -2,7 +2,7 @@
   assert:
     that:
       - agent is defined
-      - installation_path
+      - installation_path is defined
 
 - name: Install Agent
   command: "./mythic-cli install github {{ agent.repo }} {{ agent.branch }} -f"
