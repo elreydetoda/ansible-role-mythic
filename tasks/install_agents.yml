@@ -18,6 +18,10 @@
     chdir: "{{ installation_path }}"
     creates: "{{ installation_path }}/{{ agent.repo | split('/') | last }}"
 
+- name: Pause for 2 seconds
+  ansible.builtin.pause:
+    seconds: 2
+
 - name: Start Agent {{ agent.repo | split('/') | last }}
   command:
     cmd: "./mythic-cli start {{ agent.repo | split('/') | last }}"
