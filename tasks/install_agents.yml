@@ -24,5 +24,6 @@
 
 - name: Start Agent {{ agent.repo | split('/') | last }}
   command:
-    cmd: "./mythic-cli start {{ agent.repo | split('/') | last }}"
+    # FIXME: patch to handle Apollo's capital A when trying to start the service (issue #1)
+    cmd: "./mythic-cli start {{ agent.repo | split('/') | last | lower }}"
     chdir: "{{ installation_path }}"
