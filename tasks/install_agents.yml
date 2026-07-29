@@ -14,7 +14,8 @@
 
 - name: Install Agent {{ agent.repo | split('/') | last }}
   command:
-    cmd: "./mythic-cli install github {{ agent.repo }} {{ agent.branch }}"
+    # FIXME: remove -f once figure out a better way to handle identifying when a folder exists + stops installation
+    cmd: "./mythic-cli install github -f {{ agent.repo }} {{ agent.branch }}"
     chdir: "{{ installation_path }}"
     creates: "{{ installation_path }}/{{ agent.repo | split('/') | last }}"
 
