@@ -74,7 +74,7 @@
     regexp: "^{{ item.key }}"
     line: "{{ item.key }}={{ item.value }}"
   with_dict:
-    SERVER_HEADER: "{{ server_header }}"
+    # SERVER_HEADER: "{{ server_header }}"
     MYTHIC_ADMIN_USER: "{{ admin_username }}"
     MYTHIC_ADMIN_PASSWORD: "{{ default_password }}"
     DEFAULT_OPERATION_NAME: "{{ operation_name }}"
