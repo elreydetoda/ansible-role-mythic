@@ -85,6 +85,10 @@
     name: mythic_server
   register: mythic_result
 
+- name: Start mythic 
+  shell: "./mythic-cli start"
+  args:
+    chdir: "{{ installation_path }}"
 
 - name: Install Agents
   include_tasks: install_agents.yml
